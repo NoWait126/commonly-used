@@ -1,0 +1,55 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+def main():
+    total = 0
+    lessOneHundred = 0
+    oneHundredToTwoHundred = 0
+    twoHundredToThreeHundred = 0
+    threeHundredToFourHundred = 0
+    fourhundredToFiveHundred = 0
+    fiveHundredToOneThousand = 0
+    oneThousandToTwoThousand = 0
+    biggerThanTwoThousand = 0
+    file_name = "./res.txt"
+    f = open(file_name)               # 返回一个文件对象   
+    line = f.readline()               # 调用文件的 readline()方法，一次读取一行
+    while line:  
+        total = total + 1
+        num = int(line)
+        if num < 100:
+            lessOneHundred = lessOneHundred + 1
+        elif (num > 100 and num < 200):
+            oneHundredToTwoHundred = oneHundredToTwoHundred + 1
+        elif(num > 200 and num < 300):
+            twoHundredToThreeHundred = twoHundredToThreeHundred + 1
+        elif(num > 300 and num < 400):
+            threeHundredToFourHundred = threeHundredToFourHundred + 1
+        elif(num > 400 and num < 500):
+            fourhundredToFiveHundred = fourhundredToFiveHundred + 1
+        elif(num > 500 and num < 1000):
+            fiveHundredToOneThousand = fiveHundredToOneThousand + 1
+        elif(num > 1000 and num < 2000):
+            oneThousandToTwoThousand = oneThousandToTwoThousand + 1
+        elif(num > 2000):
+            biggerThanTwoThousand = biggerThanTwoThousand + 1
+            
+            
+        line = f.readline()   
+        
+    print("小   于100: ", lessOneHundred)
+    print("100 -- 200: ", oneHundredToTwoHundred)
+    print("200 -- 300: ", twoHundredToThreeHundred)
+    print("300 -- 400: ", threeHundredToFourHundred)
+    print("400 -- 500: ", fourhundredToFiveHundred)
+    print("500 - 1000: ", fiveHundredToOneThousand)
+    print("1000 - 2000: ", oneThousandToTwoThousand)
+    print("大   于2000: ", biggerThanTwoThousand)
+    over_time = 0.0
+    print("over time: ",(threeHundredToFourHundred + fourhundredToFiveHundred + fiveHundredToOneThousand + oneThousandToTwoThousand + biggerThanTwoThousand) / total)
+    
+    
+    f.close() 
+
+if __name__ == "__main__":
+    main()
