@@ -1,0 +1,13 @@
+#include <chrono>
+#include <sys/time.h>
+#include <ctime>
+
+// 获取毫秒
+int getMsTime() 
+{
+    struct timeval begin_time{};
+    time_t msecs_begin_time = 0;
+    gettimeofday(&begin_time, nullptr);
+    msecs_begin_time = (begin_time.tv_sec * 1000) + (begin_time.tv_usec / 1000);
+}
+
